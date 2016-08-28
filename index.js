@@ -1,14 +1,14 @@
 (function (root, factory) {
     if (typeof define === "function" && define.amd) {
         define(["underscore", "jquery", "backbone"], function (_, $, Backbone) {
-            return (root.IconView = factory(_, $, Backbone, root));
+            return (root.IconView = factory(_, $, Backbone));
         });
     } else if (typeof module === "object" && module.exports) {
-        module.exports = (root.IconView = factory(require("underscore"), require('jquery'), require('backbone'), root));
+        module.exports = (root.IconView = factory(require("underscore"), require('jquery'), require('backbone')));
     } else {
-        root.IconView = factory(root.jQuery, root._, root.Backbone, root);
+        root.IconView = factory(root.jQuery, root._, root.Backbone);
     }
-}(this, function ($, _, Backbone, window) {
+}(this, function ($, _, Backbone) {
     var ItemsModel = Backbone.Model.extend({});
 
     var ItemsCollection = Backbone.Collection.extend({
