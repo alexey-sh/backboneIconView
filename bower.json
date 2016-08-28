@@ -1,0 +1,22 @@
+{
+  "name": "IconView",
+  "authors": [
+    "Alexey Sh. <alexey.sunshine@gmail.com>"
+  ],
+  "description": "Simple Widget like IconView in Windows Explorer",
+  "main": "index.js",
+  "keywords": [
+    "IconView",
+    "widget"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

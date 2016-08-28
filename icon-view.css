@@ -1,0 +1,36 @@
+.icon-view {
+    border: 1px solid #ccc;
+    overflow-x: hidden;
+    overflow-y: auto;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+
+.icon-view__item {
+    float: left;
+    padding: 3px;
+    border: 1px solid #acc;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+
+.icon-view__item--active {
+    background-color: honeydew;
+}
+
+.icon-view__item-title {
+    height: 1.4em;
+    line-height: 1.4em;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: center;
+}
+
+.icon-view__item-icon {
+    box-sizing: border-box;
+    margin: 0 15%;
+    height: calc(100% - 1.4em);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
