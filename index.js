@@ -25,7 +25,6 @@
         activeItemClassName: 'icon-view__item--active',
 
         _lastKnownPos: void 0,
-        _ticking: void 0,
 
         itemTpl: _.template(
             '<div class="icon-view__item" style="width: <%= 100 / itemsPerRow %>%; height: <%= itemHeight %>px" data-item-id="<%= item.id %>">' +
@@ -41,16 +40,7 @@
             this.listenTo(this.items, 'remove', this.onRemovedItems);
             this.render();
         },
-        requestAnimFrame: (function () {
-            return window.requestAnimationFrame ||
-                window.webkitRequestAnimationFrame ||
-                window.mozRequestAnimationFrame ||
-                window.oRequestAnimationFrame ||
-                window.msRequestAnimationFrame ||
-                function (callback) {
-                    window.setTimeout(callback, 16.66);
-                };
-        })(),
+
         events: {
             'click .icon-view__item': function (e) {
                 var me = $(e.currentTarget);
@@ -61,19 +51,13 @@
                 var height = this.$el.height();
                 var scrollDir = this._lastKnownPos > this.el.scrollTop ? 'up' : 'down';
                 this._lastKnownPos = this.el.scrollTop;
-                if (!this._ticking) {
-                    this.requestAnimFrame.call(window, function () {
-                        if (height + that._lastKnownPos >= that.el.scrollHeight && that._lastKnownPos !== 0) {
-                            that.trigger('scrollEnd');
-                        }
-                        that.trigger('scroll', {
-                            scrollBottom: that._lastKnownPos + height,
-                            scrollDir: scrollDir
-                        });
-                        that._ticking = false;
-                    });
+                if (Math.ceil(height + that._lastKnownPos) >= that.el.scrollHeight && that._lastKnownPos !== 0) {
+                    that.trigger('scrollEnd');
                 }
-                this._ticking = true;
+                that.trigger('scroll', {
+                    scrollBottom: that._lastKnownPos + height,
+                    scrollDir: scrollDir
+                });
             }
         },
 
