@@ -1,10 +1,10 @@
 (function (root, factory) {
     if (typeof define === "function" && define.amd) {
-        define(["underscore", "jquery", "backbone"], function (_, $, Backbone) {
-            return (root.IconView = factory(_, $, Backbone));
+        define(["underscore", "jquery", "backbone"], function ($, _, Backbone) {
+            return (root.IconView = factory($, _, Backbone));
         });
     } else if (typeof module === "object" && module.exports) {
-        module.exports = (root.IconView = factory(require("underscore"), require('jquery'), require('backbone')));
+        module.exports = (root.IconView = factory(require('jquery'), require("underscore"), require('backbone')));
     } else {
         root.IconView = factory(root.jQuery, root._, root.Backbone);
     }
