@@ -49,7 +49,7 @@ Example of object:
 ## Events
  * `clickItem` (item, isSelected), where `item` is instance of backbone model
  * `scrollEnd` 
- * `scroll` (data), where are the next properties: 
+ * `scroll` (data), there are the next properties: 
    * `scrollBottom` Number. Similar as scrollTop but includes height of element, i.e. `element.scrollTop + element.height`
    * `scrollDir` "up" || "down"
 
